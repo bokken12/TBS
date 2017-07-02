@@ -4,6 +4,7 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 public class Game extends JFrame {
 	
@@ -26,6 +27,10 @@ public class Game extends JFrame {
 		setBounds((screenSize.width - DEFAULT_WIDTH)/2, (screenSize.height - DEFAULT_HEIGHT)/2, DEFAULT_WIDTH, DEFAULT_HEIGHT);
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		CardDeck.getInstance().getLayout().addLayoutComponent(new JPanel(), "menu");
+		CardDeck.getInstance().getLayout().show(getInstance(), "menu");
+
 	}
 	
 	public void run(){
