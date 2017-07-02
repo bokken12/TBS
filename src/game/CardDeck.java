@@ -4,6 +4,7 @@
 package game;
 
 import java.awt.CardLayout;
+import java.awt.Component;
 import java.awt.LayoutManager;
 
 import javax.swing.JPanel;
@@ -15,6 +16,8 @@ import javax.swing.JPanel;
 public class CardDeck extends JPanel {
 	
 	private static CardDeck instance;
+	
+	private String mode;
 	
 	public static CardDeck getInstance(){
 		if(instance == null){
@@ -33,5 +36,18 @@ public class CardDeck extends JPanel {
 	@Override
 	public CardLayout getLayout() {
 		return (CardLayout) super.getLayout();
+	}
+	
+	public void addCard(Component card, String name){
+		getLayout().addLayoutComponent(card, name);
+	}
+	
+	public void removeCard(Component card){
+		getLayout().removeLayoutComponent(card);
+	}
+	
+	public void setMode(String mode){
+		this.mode = mode;
+		getLayout().show(this, mode);
 	}
 }
