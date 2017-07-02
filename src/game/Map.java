@@ -10,16 +10,14 @@ import javax.swing.JPanel;
 
 public class Map extends JPanel implements MouseListener {
 
-	Tile[][] map;
+	Grid grid;
 	public final int TILE_SIZE = 64;
 
 	@Override
 	public void paintComponent(Graphics g) {
-		for(int y = 0; y < map.length; y++) {
-			for(int x = 0; x < map[0].length; x++) {
-				g.drawImage(map[y][x].getImage(), x*(TILE_SIZE/2)*3, y*TILE_SIZE/2, this);
-			}
-		}
+		grid.forEach((x, y, z, tile) -> {
+			g.drawImage(tile.getImage(), x*TILE_SIZE/z, y, this);
+		});
 	}
 	
 	@Override
