@@ -13,7 +13,7 @@ import javax.swing.JPanel;
  */
 public class MapDisplay extends JPanel {
 	
-	public static final int HEIGHT = 185;
+	public static final int HEIGHT = 184;
 	public static final int WIDTH = 226;
 	public static final int BOTTOM = 17;
 	public static final int EXTRA = 46;
