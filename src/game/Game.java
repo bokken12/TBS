@@ -12,6 +12,7 @@ public class Game extends JFrame {
 	public static final String TITLE = "TBS";
 	public static final int DEFAULT_WIDTH = 800;
 	public static final int DEFAULT_HEIGHT = 600;
+	public static final int MAX_TICK_LENGTH = 8000;
 	
 	private static Game instance = null;
 	
@@ -33,19 +34,20 @@ public class Game extends JFrame {
 	
 	public void initialize(){
 		add(CardDeck.getInstance());
-		JPanel menu = new JPanel(new BorderLayout());
-		Grid grid = new Grid(2, 2);
-		grid.set(0, 0, new Tile("rock"));
-		grid.set(0, 1, new Tile("plain"));
-		grid.set(1, 0, new Tile("trees"));
-		grid.set(1, 1, new Tile("trees"));
-		menu.add(new MapDisplay(grid));
-		CardDeck.getInstance().addCard(menu, "menu");
-		CardDeck.getInstance().setMode("menu");
+		CardDeck.getInstance().setMode("game");
+		GameScene.initialize();
+		System.out.println("set mode");
 	}
 	
 	public void run(){
 		initialize();
-		repaint();
+		while(true){
+			repaint();
+			try {
+				Thread.sleep(5);
+			} catch(InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 }

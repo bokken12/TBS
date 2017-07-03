@@ -28,7 +28,6 @@ public class CardDeck extends JPanel {
 	
 	public CardDeck(){
 		setLayout(new CardLayout());
-		
 	}
 
 	/* (non-Javadoc)
@@ -39,11 +38,11 @@ public class CardDeck extends JPanel {
 		return (CardLayout) super.getLayout();
 	}
 	
-	public void addCard(Component card, String name){
-		add(card, name);
+	public void addCard(Scene card){
+		add(card, card.getName());
 	}
 	
-	public void removeCard(Component card){
+	public void removeCard(Scene card){
 		remove(card);
 	}
 	
