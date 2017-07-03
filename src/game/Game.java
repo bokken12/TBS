@@ -1,5 +1,6 @@
 package game;
 
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 
@@ -32,7 +33,7 @@ public class Game extends JFrame {
 	
 	public void initialize(){
 		add(CardDeck.getInstance());
-		JPanel menu = new JPanel();
+		JPanel menu = new JPanel(new BorderLayout());
 		Grid grid = new Grid(2, 2);
 		grid.set(0, 0, new Tile());
 		grid.set(0, 1, new Tile());

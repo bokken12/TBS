@@ -28,6 +28,7 @@ public class CardDeck extends JPanel {
 	
 	public CardDeck(){
 		setLayout(new CardLayout());
+		
 	}
 
 	/* (non-Javadoc)
