@@ -24,9 +24,9 @@ public class Tile {
 		return image;
 	}
 	
-	public Tile() {
+	public Tile(String name) {
 		try {
-			image = ImageIO.read(new File("./resources/tiles/tile-rock.png"));
+			image = ImageIO.read(new File("./resources/tiles/tile-" + name + ".png"));
 		} catch(IOException e) {
 			e.printStackTrace();
 		}

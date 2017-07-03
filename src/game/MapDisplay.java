@@ -27,9 +27,7 @@ public class MapDisplay extends JPanel {
 	@Override
 	public void paintComponent(Graphics g) {
 		grid.forEachT((x, y, z, tile) -> {
-			System.out.println("Yee-har");
-			System.out.println("Painting a tile at: " + (x * 2 + y) * WIDTH / 2 + ", " +  y * HEIGHT);
-			g.drawImage(tile.getImage(), (x * 2 + y) * WIDTH / 2, y * (HEIGHT - EXTRA), null);
+			g.drawImage(tile.getImage(), (x * 2 + y) * WIDTH / 2, y * (HEIGHT - EXTRA) + HEIGHT + BOTTOM - tile.getImage().getHeight(null), null);
 		});
 	}
 }

@@ -35,10 +35,10 @@ public class Game extends JFrame {
 		add(CardDeck.getInstance());
 		JPanel menu = new JPanel(new BorderLayout());
 		Grid grid = new Grid(2, 2);
-		grid.set(0, 0, new Tile());
-		grid.set(0, 1, new Tile());
-		grid.set(1, 0, new Tile());
-		grid.set(1, 1, new Tile());
+		grid.set(0, 0, new Tile("rock"));
+		grid.set(0, 1, new Tile("plain"));
+		grid.set(1, 0, new Tile("trees"));
+		grid.set(1, 1, new Tile("trees"));
 		menu.add(new MapDisplay(grid));
 		CardDeck.getInstance().addCard(menu, "menu");
 		CardDeck.getInstance().setMode("menu");
