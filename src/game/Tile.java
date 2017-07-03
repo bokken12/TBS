@@ -1,13 +1,14 @@
 package game;
 
 import java.awt.Image;
-import java.util.IdentityHashMap;
+import java.io.File;
+import java.io.IOException;
 
-import javax.swing.ImageIcon;
+import javax.imageio.ImageIO;
 
 public class Tile {
 
-	ImageIcon image;
+	private Image image;
 	
 	static enum Type {
 		TREE("wood"), PLAINS("sheep"), WATER("food"), BOULDERS("stone"), FARM("food");
@@ -20,10 +21,14 @@ public class Tile {
 	}
 	
 	public Image getImage() {
-		return image.getImage();
+		return image;
 	}
 	
 	public Tile() {
-		
+		try {
+			image = ImageIO.read(new File("./resources/tiles/tile-rock.png"));
+		} catch(IOException e) {
+			e.printStackTrace();
+		}
 	}
 }

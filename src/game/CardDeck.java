@@ -39,11 +39,11 @@ public class CardDeck extends JPanel {
 	}
 	
 	public void addCard(Component card, String name){
-		getLayout().addLayoutComponent(card, name);
+		add(card, name);
 	}
 	
 	public void removeCard(Component card){
-		getLayout().removeLayoutComponent(card);
+		remove(card);
 	}
 	
 	public void setMode(String mode){

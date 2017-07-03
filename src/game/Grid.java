@@ -32,12 +32,24 @@ public class Grid implements Iterable<Iterable<Tile>> {
 		return Math.max(Math.abs(x2 - x1), Math.max(Math.abs(y2 - y1), Math.abs(z2 - z1)));
 	}
 	
+	public Grid(int width, int height){
+		tiles = new Tile[width][height];
+	}
+	
 	public Tile get(int x, int y){
 		return tiles[x][y];
 	}
 	
 	public Tile get(int x, int y, int z){
 		return get(x, y);
+	}
+	
+	public void set(int x, int y, Tile tile){
+		tiles[x][y] = tile;
+	}
+	
+	public void set(int x, int y, int z, Tile tile){
+		set(x, y, tile);
 	}
 	
 	public Iterable<Tile> neighbors(int x, int y){
@@ -60,6 +72,26 @@ public class Grid implements Iterable<Iterable<Tile>> {
 		for(int x = 0; x < tiles.length; x++){
 			for(int y = 0; y < tiles[x].length; y++){
 				tc.accept(x, y, tiles[x][y]);
+			}
+		}
+	}
+	
+	public void forEachT(TileConsumer tc){
+		if(tiles.length > 0){
+			for(int y = 0; y < tiles[0].length; y++){
+				for(int x = 0; x < tiles.length; x++){
+					tc.accept(x, y, getZ(x,  y), tiles[x][y]);
+				}
+			}
+		}
+	}
+	
+	public void forEachT2D(TileConsumer2D tc){
+		if(tiles.length > 0){
+			for(int y = 0; y < tiles[0].length; y++){
+				for(int x = 0; x < tiles.length; x++){
+					tc.accept(x, y, tiles[x][y]);
+				}
 			}
 		}
 	}
