@@ -15,6 +15,10 @@ public class AnimationManager {
 	
 	private IdentityHashMap<Component, Animation> animations;
 	
+	public AnimationManager(){
+		animations = new IdentityHashMap<Component, Animation>();
+	}
+	
 	public void paint(Graphics g){
 		long time = System.nanoTime();
 		for(Animation a: animations.values()){

@@ -35,7 +35,8 @@ public class MapDisplay extends JPanel implements KeyListener {
 	public void paintComponent(Graphics g) {
 		g.translate(x, y);
 		grid.forEachT((x, y, z, tile) -> {
-			g.drawImage(tile.getImage(), (x * 2 + y) * WIDTH / 2, y * (HEIGHT - EXTRA) + HEIGHT + BOTTOM - tile.getImage().getHeight(null), null);
+			Point p = Hex.toCartesian(x, y, z);
+			g.drawImage(tile.getImage(), p.x, p.y + HEIGHT + BOTTOM - tile.getImage().getHeight(null), null);
 		});
 	}
 
@@ -81,7 +82,6 @@ public class MapDisplay extends JPanel implements KeyListener {
 	 */
 	@Override
 	public void keyPressed(KeyEvent e) {
-		System.out.println("ssssss");
 		if(e.getKeyCode() == KeyEvent.VK_LEFT) {
 			x += 1;
 		}

@@ -30,7 +30,7 @@ public abstract class Scene extends JPanel implements MouseListener, KeyListener
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		//am.paint(g);
+		am.paint(g);
 	}
 
 	/* (non-Javadoc)

@@ -11,8 +11,8 @@ import java.awt.geom.Point2D;
  *
  */
 public class Hex {
-	public static final int HEIGHT = 0;
-	public static final int HALF_WIDTH = 0;
+	public static final int HEIGHT = 138;
+	public static final int HALF_WIDTH = 113;
 	
 	public static Point toCartesian(int x, int y){
 		return new Point((x * 2 + y) * HALF_WIDTH, y * HEIGHT);
