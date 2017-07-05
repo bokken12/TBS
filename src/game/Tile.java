@@ -9,6 +9,7 @@ import javax.imageio.ImageIO;
 public class Tile {
 
 	private Image image;
+	private Tileable resident;
 	
 	static enum Type {
 		TREE("wood"), PLAINS("sheep"), WATER("food"), BOULDERS("stone"), FARM("food");

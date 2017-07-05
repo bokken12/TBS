@@ -4,6 +4,7 @@
 package game;
 
 import java.awt.Graphics;
+import java.awt.MouseInfo;
 import java.awt.Point;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -33,10 +34,19 @@ public class MapDisplay extends JPanel implements KeyListener {
 	
 	@Override
 	public void paintComponent(Graphics g) {
+		Point mouse = MouseInfo.getPointerInfo().getLocation();
+		int mousey = (mouse.y + y) / Hex.HEIGHT - 2;
+		int mousex = (int) ((double)(mouse.x + x) / Hex.HALF_WIDTH - (double) (mouse.y + y) / Hex.HEIGHT) / 2 - 1;
+		int mousez = -(mousex + mousey);//(int) ((double)(mouse.x + x) / Hex.HALF_WIDTH + (double) (mouse.y + y) / Hex.HEIGHT) / 2;
+		System.out.println(mousex + ", " + mousey + ", " + mousez);
 		g.translate(x, y);
 		grid.forEachT((x, y, z, tile) -> {
-			Point p = Hex.toCartesian(x, y, z);
-			g.drawImage(tile.getImage(), p.x, p.y + HEIGHT + BOTTOM - tile.getImage().getHeight(null), null);
+			if(x == mousex && y == mousey && z == mousez){
+				System.out.println("excluding");
+			} else {
+				Point p = Hex.toCartesian(x, y, z);
+				g.drawImage(tile.getImage(), p.x, p.y + HEIGHT + BOTTOM - tile.getImage().getHeight(null), null);
+			}
 		});
 	}
 
